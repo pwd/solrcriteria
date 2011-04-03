@@ -18,7 +18,7 @@ package org.xume.solrjcriteria.criterion;
 
 import static org.xume.solrjcriteria.criterion.Patterns.eq;
 
-import org.xume.solrjcriteria.value.Value;
+import org.xume.solrjcriteria.term.Term;
 
 /**
  * @author Johan Siebens
@@ -27,14 +27,14 @@ public abstract class AbstractCriterion implements Criterion {
 
 	private String field;
 
-	private Value value;
+	private Term value;
 
-	AbstractCriterion(String field, Value value) {
+	AbstractCriterion(String field, Term value) {
 		this.field = field;
 		this.value = value;
 	}
 
-	AbstractCriterion(Value value) {
+	AbstractCriterion(Term value) {
 		this(null, value);
 	}
 

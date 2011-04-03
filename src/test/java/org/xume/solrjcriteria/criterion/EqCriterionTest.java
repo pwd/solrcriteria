@@ -19,8 +19,8 @@ package org.xume.solrjcriteria.criterion;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.xume.solrjcriteria.criterion.Restrictions.eq;
-import static org.xume.solrjcriteria.value.Values.phrase;
-import static org.xume.solrjcriteria.value.Values.terms;
+import static org.xume.solrjcriteria.term.Terms.phrase;
+import static org.xume.solrjcriteria.term.Terms.term;
 
 import org.junit.Test;
 
@@ -31,7 +31,7 @@ public class EqCriterionTest {
 
 	@Test
 	public void testWithDefaultField() {
-		String fragment = eq(terms("ipsum sit amet")).toQueryFragment();
+		String fragment = eq(term("ipsum sit amet")).toQueryFragment();
 		assertThat(fragment, equalTo("(ipsum sit amet)"));
 	}
 
@@ -43,13 +43,13 @@ public class EqCriterionTest {
 
 	@Test
 	public void testWithSingleTerm() {
-		String fragment = eq("lorem", terms("ipsum")).toQueryFragment();
+		String fragment = eq("lorem", term("ipsum")).toQueryFragment();
 		assertThat(fragment, equalTo("lorem:ipsum"));
 	}
 
 	@Test
 	public void testWithTerms() {
-		String fragment = eq("lorem", terms("ipsum sit amet")).toQueryFragment();
+		String fragment = eq("lorem", term("ipsum sit amet")).toQueryFragment();
 		assertThat(fragment, equalTo("(lorem:ipsum lorem:sit lorem:amet)"));
 	}
 

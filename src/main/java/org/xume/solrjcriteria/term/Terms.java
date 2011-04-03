@@ -14,33 +14,27 @@
  * limitations under the License.
  */
 
-package org.xume.solrjcriteria.criterion;
-
-import static org.xume.solrjcriteria.criterion.Patterns.ge;
-
-import org.xume.solrjcriteria.term.Term;
+package org.xume.solrjcriteria.term;
 
 /**
  * @author Johan Siebens
  */
-public class GeCriterion extends AbstractCriterion {
+public class Terms {
 
-	public GeCriterion(Term value) {
-		super(value);
+	public static Term defaultImpl(String value) {
+		return term(value);
 	}
 
-	public GeCriterion(String field, Term value) {
-		super(field, value);
+	public static Term phrase(String value) {
+		return new Phrase(value);
 	}
 
-	@Override
-	protected String getFieldFragment(String value) {
-		return ge(value);
+	public static Term singleTerms(String value) {
+		return new SingleTerms(value);
 	}
 
-	@Override
-	protected String getFieldFragment(String field, String value) {
-		return field + ":" + ge(value);
+	public static Term term(String value) {
+		return singleTerms(value);
 	}
 
 }

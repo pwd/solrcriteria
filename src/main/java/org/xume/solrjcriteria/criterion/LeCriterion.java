@@ -18,18 +18,18 @@ package org.xume.solrjcriteria.criterion;
 
 import static org.xume.solrjcriteria.criterion.Patterns.le;
 
-import org.xume.solrjcriteria.value.Value;
+import org.xume.solrjcriteria.term.Term;
 
 /**
  * @author Johan Siebens
  */
 public class LeCriterion extends AbstractCriterion {
 
-	public LeCriterion(Value value) {
+	public LeCriterion(Term value) {
 		super(value);
 	}
 
-	public LeCriterion(String field, Value value) {
+	public LeCriterion(String field, Term value) {
 		super(field, value);
 	}
 

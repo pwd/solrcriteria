@@ -20,7 +20,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.xume.solrjcriteria.criterion.Restrictions.eq;
 import static org.xume.solrjcriteria.criterion.Restrictions.ne;
-import static org.xume.solrjcriteria.value.Values.phrase;
+import static org.xume.solrjcriteria.term.Terms.phrase;
 
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocumentList;

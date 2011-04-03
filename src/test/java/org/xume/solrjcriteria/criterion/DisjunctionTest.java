@@ -20,7 +20,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.xume.solrjcriteria.criterion.Restrictions.eq;
 import static org.xume.solrjcriteria.criterion.Restrictions.or;
-import static org.xume.solrjcriteria.value.Values.terms;
+import static org.xume.solrjcriteria.term.Terms.term;
 
 import java.util.Collections;
 import java.util.List;
@@ -35,7 +35,7 @@ public class DisjunctionTest {
 
 	@Test
 	public void testWithMultipleCriterions() {
-		String fragment = or(eq(terms("lorem")), eq(terms("ipsum"))).toQueryFragment();
+		String fragment = or(eq(term("lorem")), eq(term("ipsum"))).toQueryFragment();
 		assertThat(fragment, equalTo("(lorem OR ipsum)"));
 	}
 
@@ -47,7 +47,7 @@ public class DisjunctionTest {
 
 	@Test
 	public void testWithSingleCriterion() {
-		List<Criterion> criterions = Collections.singletonList(eq(terms("lorem")));
+		List<Criterion> criterions = Collections.singletonList(eq(term("lorem")));
 		String fragment = or(criterions).toQueryFragment();
 		assertThat(fragment, equalTo("lorem"));
 	}

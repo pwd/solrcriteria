@@ -19,8 +19,8 @@ package org.xume.solrjcriteria.criterion;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.xume.solrjcriteria.criterion.Restrictions.le;
-import static org.xume.solrjcriteria.value.Values.phrase;
-import static org.xume.solrjcriteria.value.Values.terms;
+import static org.xume.solrjcriteria.term.Terms.phrase;
+import static org.xume.solrjcriteria.term.Terms.term;
 
 import org.junit.Test;
 
@@ -31,13 +31,13 @@ public class LeCriterionTest {
 
 	@Test
 	public void testWithDefaultField() {
-		String fragment = le(terms("ipsum sit amet")).toQueryFragment();
+		String fragment = le(term("ipsum sit amet")).toQueryFragment();
 		assertThat(fragment, equalTo("([ * TO ipsum ] [ * TO sit ] [ * TO amet ])"));
 	}
 
 	@Test
 	public void testWithValue() {
-		String fragment = le("lorem", terms("ipsum sit amet")).toQueryFragment();
+		String fragment = le("lorem", term("ipsum sit amet")).toQueryFragment();
 		assertThat(fragment, equalTo("(lorem:[ * TO ipsum ] lorem:[ * TO sit ] lorem:[ * TO amet ])"));
 	}
 

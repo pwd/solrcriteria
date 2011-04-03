@@ -18,18 +18,18 @@ package org.xume.solrjcriteria.criterion;
 
 import static org.xume.solrjcriteria.criterion.Patterns.lt;
 
-import org.xume.solrjcriteria.value.Value;
+import org.xume.solrjcriteria.term.Term;
 
 /**
  * @author Johan Siebens
  */
 public class LtCriterion extends AbstractCriterion {
 
-	public LtCriterion(String field, Value value) {
+	public LtCriterion(String field, Term value) {
 		super(field, value);
 	}
 
-	public LtCriterion(Value value) {
+	public LtCriterion(Term value) {
 		super(value);
 	}
 

@@ -16,18 +16,18 @@
 
 package org.xume.solrjcriteria.criterion;
 
-import org.xume.solrjcriteria.value.Value;
+import org.xume.solrjcriteria.term.Term;
 
 /**
  * @author Johan Siebens
  */
 public class EqCriterion extends AbstractCriterion {
 
-	public EqCriterion(String field, Value value) {
+	public EqCriterion(String field, Term value) {
 		super(field, value);
 	}
 
-	public EqCriterion(Value value) {
+	public EqCriterion(Term value) {
 		super(value);
 	}
 

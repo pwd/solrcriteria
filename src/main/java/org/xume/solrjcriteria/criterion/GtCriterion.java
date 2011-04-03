@@ -18,18 +18,18 @@ package org.xume.solrjcriteria.criterion;
 
 import static org.xume.solrjcriteria.criterion.Patterns.gt;
 
-import org.xume.solrjcriteria.value.Value;
+import org.xume.solrjcriteria.term.Term;
 
 /**
  * @author Johan Siebens
  */
 public class GtCriterion extends AbstractCriterion {
 
-	public GtCriterion(Value value) {
+	public GtCriterion(Term value) {
 		super(value);
 	}
 
-	public GtCriterion(String field, Value value) {
+	public GtCriterion(String field, Term value) {
 		super(field, value);
 	}
 

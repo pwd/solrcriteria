@@ -29,8 +29,8 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.xume.solrjcriteria.criterion.Criterion;
 import org.xume.solrjcriteria.order.Order;
-import org.xume.solrjcriteria.value.Value;
-import org.xume.solrjcriteria.value.Values;
+import org.xume.solrjcriteria.term.Term;
+import org.xume.solrjcriteria.term.Terms;
 
 /**
  * @author Johan Siebens
@@ -55,10 +55,10 @@ public final class SolrjCriteria {
 	}
 
 	public SolrjCriteria add(String field, String value) {
-		return add(field, Values.defaultImpl(value));
+		return add(field, Terms.defaultImpl(value));
 	}
 
-	public SolrjCriteria add(String field, Value value) {
+	public SolrjCriteria add(String field, Term value) {
 		return add(eq(field, value));
 	}
 

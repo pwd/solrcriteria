@@ -16,18 +16,18 @@
 
 package org.xume.solrjcriteria.criterion;
 
-import org.xume.solrjcriteria.value.Value;
+import org.xume.solrjcriteria.term.Term;
 
 /**
  * @author Johan Siebens
  */
 public class NeCriterion extends EqCriterion {
 
-	public NeCriterion(String field, Value value) {
+	public NeCriterion(String field, Term value) {
 		super(field, value);
 	}
 
-	public NeCriterion(Value value) {
+	public NeCriterion(Term value) {
 		super(value);
 	}
 

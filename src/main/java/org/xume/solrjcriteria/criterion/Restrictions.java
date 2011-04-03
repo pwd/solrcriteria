@@ -19,7 +19,7 @@ package org.xume.solrjcriteria.criterion;
 import java.util.Arrays;
 import java.util.List;
 
-import org.xume.solrjcriteria.value.Value;
+import org.xume.solrjcriteria.term.Term;
 
 /**
  * @author Johan Siebens
@@ -34,51 +34,51 @@ public class Restrictions {
 		return new Conjunction(criterions);
 	}
 
-	public static Criterion eq(String field, Value value) {
+	public static Criterion eq(String field, Term value) {
 		return new EqCriterion(field, value);
 	}
 
-	public static Criterion eq(Value value) {
+	public static Criterion eq(Term value) {
 		return new EqCriterion(value);
 	}
 
-	public static Criterion ge(String field, Value value) {
+	public static Criterion ge(String field, Term value) {
 		return new GeCriterion(field, value);
 	}
 
-	public static Criterion ge(Value value) {
+	public static Criterion ge(Term value) {
 		return new GeCriterion(value);
 	}
 
-	public static Criterion gt(String field, Value value) {
+	public static Criterion gt(String field, Term value) {
 		return new GtCriterion(field, value);
 	}
 
-	public static Criterion gt(Value value) {
+	public static Criterion gt(Term value) {
 		return new GtCriterion(value);
 	}
 
-	public static Criterion le(String field, Value value) {
+	public static Criterion le(String field, Term value) {
 		return new LeCriterion(field, value);
 	}
 
-	public static Criterion le(Value value) {
+	public static Criterion le(Term value) {
 		return new LeCriterion(value);
 	}
 
-	public static Criterion lt(String field, Value value) {
+	public static Criterion lt(String field, Term value) {
 		return new LtCriterion(field, value);
 	}
 
-	public static Criterion lt(Value value) {
+	public static Criterion lt(Term value) {
 		return new LtCriterion(value);
 	}
 
-	public static Criterion ne(String field, Value value) {
+	public static Criterion ne(String field, Term value) {
 		return new NeCriterion(field, value);
 	}
 
-	public static Criterion ne(Value value) {
+	public static Criterion ne(Term value) {
 		return new NeCriterion(value);
 	}
 

@@ -19,8 +19,8 @@ package org.xume.solrjcriteria.criterion;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.xume.solrjcriteria.criterion.Restrictions.gt;
-import static org.xume.solrjcriteria.value.Values.phrase;
-import static org.xume.solrjcriteria.value.Values.terms;
+import static org.xume.solrjcriteria.term.Terms.phrase;
+import static org.xume.solrjcriteria.term.Terms.term;
 
 import org.junit.Test;
 
@@ -31,13 +31,13 @@ public class GtCriterionTest {
 
 	@Test
 	public void testWithDefaultField() {
-		String fragment = gt(terms("ipsum sit amet")).toQueryFragment();
+		String fragment = gt(term("ipsum sit amet")).toQueryFragment();
 		assertThat(fragment, equalTo("({ ipsum TO * } { sit TO * } { amet TO * })"));
 	}
 
 	@Test
 	public void testWithValue() {
-		String fragment = gt("lorem", terms("ipsum sit amet")).toQueryFragment();
+		String fragment = gt("lorem", term("ipsum sit amet")).toQueryFragment();
 		assertThat(fragment, equalTo("(lorem:{ ipsum TO * } lorem:{ sit TO * } lorem:{ amet TO * })"));
 	}
 
