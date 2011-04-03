@@ -27,6 +27,7 @@ import org.apache.solr.client.solrj.SolrQuery.ORDER;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.common.SolrDocumentList;
 import org.xume.solrjcriteria.criterion.Criterion;
 import org.xume.solrjcriteria.order.Order;
 import org.xume.solrjcriteria.term.Term;
@@ -76,6 +77,14 @@ public final class SolrjCriteria {
 
 	public QueryResponse execute() throws SolrServerException {
 		return solrServer.query(buildQuery());
+	}
+
+	public SolrDocumentList list() throws SolrServerException {
+		return execute().getResults();
+	}
+
+	public <T> List<T> list(Class<T> type) throws SolrServerException {
+		return execute().getBeans(type);
 	}
 
 	public SolrjCriteria order(Order order) {

@@ -117,6 +117,11 @@ public class AbstractIntegrationTest {
 		server().commit();
 	}
 
+	protected void addBean(Object bean) throws Exception {
+		server().addBean(bean);
+		server().commit();
+	}
+
 	protected SolrjCriteria createCriteria() {
 		return SOLRJ_CRITERIA_FACTORY.createCriteria();
 	}
