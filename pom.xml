@@ -3,12 +3,36 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.xume</groupId>
+		<artifactId>xume-oss-parent</artifactId>
+		<version>1</version>
+	</parent>
+
 	<groupId>org.xume.solrjcriteria</groupId>
 	<artifactId>solrjcriteria</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<name>SolrjCriteria</name>
+	<description>Criteria API for Solrj</description>
+	<url>https://github.com/xume/solrjcriteria</url>
+
 	<inceptionYear>2011</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>Apache License Version 2.0</name>
+			<distribution>repo</distribution>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git@github.com:xume/solrjcriteria.git</connection>
+		<url>https://github.com/xume/solrjcriteria</url>
+		<developerConnection>scm:git:git@github.com:xume/solrjcriteria.git</developerConnection>
+	</scm>
 
 	<organization>
 		<name>Xume</name>
@@ -27,35 +51,8 @@
 		</developer>
 	</developers>
 
-	<properties>
-		<target.version>1.6</target.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>${target.version}</source>
-					<target>${target.version}</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
@@ -74,14 +71,6 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.mycila.maven-license-plugin</groupId>
-				<artifactId>maven-license-plugin</artifactId>
-				<version>1.8.0</version>
-				<configuration>
-					<header>src/etc/header.txt</header>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
