@@ -9,14 +9,14 @@
 		<version>1</version>
 	</parent>
 
-	<groupId>org.xume.solrjcriteria</groupId>
-	<artifactId>solrjcriteria</artifactId>
+	<groupId>org.xume.solrcriteria</groupId>
+	<artifactId>solrcriteria</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>SolrjCriteria</name>
-	<description>Criteria API for Solrj</description>
-	<url>https://github.com/xume/solrjcriteria</url>
+	<name>SolrCriteria</name>
+	<description>Criteria API for Solr</description>
+	<url>https://github.com/xume/solrcriteria</url>
 
 	<inceptionYear>2011</inceptionYear>
 
@@ -29,9 +29,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git@github.com:xume/solrjcriteria.git</connection>
-		<url>https://github.com/xume/solrjcriteria</url>
-		<developerConnection>scm:git:git@github.com:xume/solrjcriteria.git</developerConnection>
+		<connection>scm:git:git@github.com:xume/solrcriteria.git</connection>
+		<url>https://github.com/xume/solrcriteria</url>
+		<developerConnection>scm:git:git@github.com:xume/solrcriteria.git</developerConnection>
 	</scm>
 
 	<organization>
