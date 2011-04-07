@@ -17,9 +17,9 @@
 package org.xume.solrjcriteria;
 
 import static org.xume.solrjcriteria.criterion.Restrictions.and;
-import static org.xume.solrjcriteria.criterion.Restrictions.eq;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.solr.client.solrj.SolrQuery;
@@ -29,9 +29,9 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocumentList;
 import org.xume.solrjcriteria.criterion.Criterion;
+import org.xume.solrjcriteria.criterion.Restrictions;
 import org.xume.solrjcriteria.order.Order;
 import org.xume.solrjcriteria.term.Term;
-import org.xume.solrjcriteria.term.Terms;
 
 /**
  * @author Johan Siebens
@@ -55,24 +55,40 @@ public final class SolrjCriteria {
 		return this;
 	}
 
-	public SolrjCriteria add(String field, String value) {
-		return add(field, Terms.defaultImpl(value));
+	public SolrjCriteria add(Term term) {
+		return add(Restrictions.eq(term));
 	}
 
-	public SolrjCriteria add(String field, Term value) {
-		return add(eq(field, value));
+	public SolrjCriteria add(String field, Term term) {
+		return add(Restrictions.eq(field, term));
 	}
 
-	public SolrjCriteria addField(String field) {
+	public SolrjCriteria field(String field) {
 		solrQuery.addField(field);
 		return this;
 	}
 
-	public SolrjCriteria addFields(String... fields) {
-		for (String field : fields) {
-			addField(field);
+	public SolrjCriteria addField(String field) {
+		return field(field);
+	}
+
+	public SolrjCriteria withField(String field) {
+		return field(field);
+	}
+
+	public SolrjCriteria fields(String field, String... otherFields) {
+		for (String currentField : asList(field, otherFields)) {
+			field(currentField);
 		}
 		return this;
+	}
+
+	public SolrjCriteria addFields(String field, String... otherFields) {
+		return fields(field, otherFields);
+	}
+
+	public SolrjCriteria withFields(String field, String otherFields) {
+		return fields(field, otherFields);
 	}
 
 	public QueryResponse execute() throws SolrServerException {
@@ -92,26 +108,54 @@ public final class SolrjCriteria {
 		return this;
 	}
 
-	public SolrjCriteria setFirstResult(int firstResult) {
+	public SolrjCriteria firstResult(int firstResult) {
 		this.solrQuery.setStart(firstResult);
 		return this;
 	}
 
-	public SolrjCriteria setMaxResults(int maxResults) {
+	public SolrjCriteria setFirstResult(int firstResult) {
+		return firstResult(firstResult);
+	}
+
+	public SolrjCriteria withFirstResult(int firstResult) {
+		return firstResult(firstResult);
+	}
+
+	public SolrjCriteria maxResults(int maxResults) {
 		this.solrQuery.setRows(maxResults);
 		return this;
 	}
 
-	private SolrQuery buildQuery() {
+	public SolrjCriteria setMaxResults(int maxResults) {
+		return maxResults(maxResults);
+	}
+
+	public SolrjCriteria withMaxResults(int maxResults) {
+		return maxResults(maxResults);
+	}
+
+	SolrQuery buildQuery() {
 		String query = query();
 		if (query != null && query.trim().length() != 0) {
 			solrQuery.setQuery(query);
+		}
+		else {
+			solrQuery.setQuery("*:*");
 		}
 		return solrQuery;
 	}
 
 	private String query() {
 		return and(criterions).toQueryFragment();
+	}
+
+	private <T> List<T> asList(T t, T... additional) {
+		List<T> result = new ArrayList<T>();
+		result.add(t);
+		if (additional != null) {
+			result.addAll(Arrays.asList(additional));
+		}
+		return result;
 	}
 
 }
