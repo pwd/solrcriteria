@@ -14,21 +14,22 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.term;
+package org.xume.solrcriteria.modified;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
+
+import org.junit.Test;
+import org.xume.solrcriteria.terms.Word;
 
 /**
  * @author Johan Siebens
  */
-public class SingleTerms implements Term {
+public class RequiredModifierTest {
 
-	private String[] values;
-
-	public SingleTerms(String value) {
-		this.values = value.split("\\s");
-	}
-
-	public String[] values() {
-		return values;
+	@Test
+	public void test() {
+		assertThat(new RequiredModifier(new Word("lorem")).value(), equalTo("+lorem"));
 	}
 
 }

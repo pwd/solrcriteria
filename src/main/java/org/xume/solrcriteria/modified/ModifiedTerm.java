@@ -14,33 +14,13 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.modified;
 
-import static org.xume.solrcriteria.criterion.Patterns.lt;
-
-import org.xume.solrcriteria.term.Term;
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
  */
-public class LtCriterion extends AbstractCriterion {
-
-	public LtCriterion(String field, Term value) {
-		super(field, value);
-	}
-
-	public LtCriterion(Term value) {
-		super(value);
-	}
-
-	@Override
-	protected String getFieldFragment(String value) {
-		return lt(value);
-	}
-
-	@Override
-	protected String getFieldFragment(String field, String value) {
-		return field + ":" + lt(value);
-	}
+public interface ModifiedTerm extends Term {
 
 }

@@ -14,17 +14,32 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.junction;
 
+import java.util.Arrays;
 import java.util.List;
+
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
  */
-public class Conjunction extends AbstractJunction {
+public class Junctions {
 
-	public Conjunction(List<Criterion> criterions) {
-		super("AND", criterions);
+	public static AbstractJunction and(Term... terms) {
+		return and(Arrays.asList(terms));
+	}
+
+	public static AbstractJunction and(List<Term> terms) {
+		return new Conjunction(terms);
+	}
+
+	public static AbstractJunction or(Term... terms) {
+		return or(Arrays.asList(terms));
+	}
+
+	public static AbstractJunction or(List<Term> terms) {
+		return new Disjunction(terms);
 	}
 
 }

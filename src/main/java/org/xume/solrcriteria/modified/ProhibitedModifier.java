@@ -14,21 +14,24 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.modified;
 
-import org.xume.solrcriteria.term.Term;
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
  */
-public class EqCriterion extends AbstractCriterion {
+public class ProhibitedModifier implements ModifiedTerm {
 
-	public EqCriterion(String field, Term value) {
-		super(field, value);
+	private Term term;
+
+	public ProhibitedModifier(Term term) {
+		this.term = term;
 	}
 
-	public EqCriterion(Term value) {
-		super(value);
+	@Override
+	public String value() {
+		return "-" + term.value();
 	}
 
 }

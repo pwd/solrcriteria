@@ -14,17 +14,29 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.range;
 
-import java.util.List;
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
  */
-public class Disjunction extends AbstractJunction {
+class Patterns {
 
-	public Disjunction(List<Criterion> criterions) {
-		super("OR", criterions);
+	static String ge(Term term) {
+		return "[ " + term.value() + " TO * ]";
+	}
+
+	static String gt(Term term) {
+		return "{ " + term.value() + " TO * }";
+	}
+
+	static String le(Term term) {
+		return "[ * TO " + term.value() + " ]";
+	}
+
+	static String lt(Term term) {
+		return "{ * TO " + term.value() + " }";
 	}
 
 }

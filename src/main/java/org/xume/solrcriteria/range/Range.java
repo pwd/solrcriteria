@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.range;
+
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
  */
-public interface Criterion {
-
-	String toQueryFragment();
+public interface Range extends Term {
 
 }

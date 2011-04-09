@@ -14,31 +14,22 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.range;
 
-import org.xume.solrcriteria.term.Term;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.xume.solrcriteria.terms.Terms.word;
+
+import org.junit.Test;
 
 /**
  * @author Johan Siebens
  */
-public class NeCriterion extends EqCriterion {
+public class GreaterThanTest {
 
-	public NeCriterion(String field, Term value) {
-		super(field, value);
-	}
-
-	public NeCriterion(Term value) {
-		super(value);
-	}
-
-	@Override
-	protected String getFieldFragment(String value) {
-		return "-" + super.getFieldFragment(value);
-	}
-
-	@Override
-	protected String getFieldFragment(String field, String value) {
-		return "-" + super.getFieldFragment(field, value);
+	@Test
+	public void test() {
+		assertThat(new GreaterThan(word("lorem")).value(), equalTo("{ lorem TO * }"));
 	}
 
 }

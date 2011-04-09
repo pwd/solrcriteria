@@ -14,33 +14,31 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
-
-import static org.xume.solrcriteria.criterion.Patterns.le;
-
-import org.xume.solrcriteria.term.Term;
+package org.xume.solrcriteria.terms;
 
 /**
  * @author Johan Siebens
  */
-public class LeCriterion extends AbstractCriterion {
+public class Phrase implements Term {
 
-	public LeCriterion(Term value) {
-		super(value);
-	}
+	private static final String DOUBLE_QUOTE = "\"";
 
-	public LeCriterion(String field, Term value) {
-		super(field, value);
-	}
+	private String value;
 
-	@Override
-	protected String getFieldFragment(String value) {
-		return le(value);
+	public Phrase(String value) {
+		this.value = value;
 	}
 
 	@Override
-	protected String getFieldFragment(String field, String value) {
-		return field + ":" + le(value);
+	public String value() {
+		String result = value;
+		if (!result.startsWith(DOUBLE_QUOTE)) {
+			result = DOUBLE_QUOTE + result;
+		}
+		if (!result.endsWith(DOUBLE_QUOTE)) {
+			result = result + DOUBLE_QUOTE;
+		}
+		return result;
 	}
 
 }

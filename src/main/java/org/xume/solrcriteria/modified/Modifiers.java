@@ -14,33 +14,21 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria;
+package org.xume.solrcriteria.modified;
 
-import org.apache.solr.client.solrj.SolrServer;
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
  */
-public class SolrCriteriaFactory {
+public class Modifiers {
 
-	private SolrServer solrServer;
-
-	public SolrCriteriaFactory() {
+	public static ModifiedTerm required(Term term) {
+		return new RequiredModifier(term);
 	}
 
-	public SolrCriteriaFactory(SolrServer solrServer) {
-		this.solrServer = solrServer;
-	}
-
-	public SolrCriteria createCriteria() {
-		if (solrServer == null) {
-			throw new IllegalStateException("No SolrServer is configured in this SolrCriteriaFactory");
-		}
-		return new SolrCriteria(solrServer);
-	}
-
-	public void setSolrServer(SolrServer solrServer) {
-		this.solrServer = solrServer;
+	public static ModifiedTerm prohibited(Term term) {
+		return new ProhibitedModifier(term);
 	}
 
 }

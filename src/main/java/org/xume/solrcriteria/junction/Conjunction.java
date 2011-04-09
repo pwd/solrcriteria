@@ -14,27 +14,19 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.term;
+package org.xume.solrcriteria.junction;
+
+import java.util.List;
+
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
  */
-public class Terms {
+public class Conjunction extends AbstractJunction {
 
-	public static Term defaultImpl(String value) {
-		return term(value);
-	}
-
-	public static Term phrase(String value) {
-		return new Phrase(value);
-	}
-
-	public static Term singleTerms(String value) {
-		return new SingleTerms(value);
-	}
-
-	public static Term term(String value) {
-		return singleTerms(value);
+	public Conjunction(List<Term> terms) {
+		super("AND", terms);
 	}
 
 }

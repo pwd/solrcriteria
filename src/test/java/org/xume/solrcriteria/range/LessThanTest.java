@@ -14,34 +14,22 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.term;
+package org.xume.solrcriteria.range;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.xume.solrcriteria.terms.Terms.word;
+
+import org.junit.Test;
 
 /**
  * @author Johan Siebens
  */
-public class Phrase implements Term {
+public class LessThanTest {
 
-	private static final String DOUBLE_QUOTE = "\"";
-
-	private String value;
-
-	public Phrase(String value) {
-		this.value = quoted(value);
-	}
-
-	public String[] values() {
-		return new String[] { value };
-	}
-
-	private String quoted(String value) {
-		String result = value;
-		if (!result.startsWith(DOUBLE_QUOTE)) {
-			result = DOUBLE_QUOTE + result;
-		}
-		if (!result.endsWith(DOUBLE_QUOTE)) {
-			result = result + DOUBLE_QUOTE;
-		}
-		return result;
+	@Test
+	public void test() {
+		assertThat(new LessThan(word("lorem")).value(), equalTo("{ * TO lorem }"));
 	}
 
 }

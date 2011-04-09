@@ -14,37 +14,22 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.range;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.xume.solrcriteria.criterion.Restrictions.ne;
-import static org.xume.solrcriteria.term.Terms.phrase;
-import static org.xume.solrcriteria.term.Terms.term;
+import static org.xume.solrcriteria.terms.Terms.word;
 
 import org.junit.Test;
 
 /**
  * @author Johan Siebens
  */
-public class NeCriterionTest {
+public class GreaterThanOrEqualToTest {
 
 	@Test
-	public void testWithDefaultField() {
-		String fragment = ne(term("ipsum sit amet")).toQueryFragment();
-		assertThat(fragment, equalTo("(-ipsum -sit -amet)"));
-	}
-
-	@Test
-	public void testWithValue() {
-		String fragment = ne("lorem", term("ipsum sit amet")).toQueryFragment();
-		assertThat(fragment, equalTo("(-lorem:ipsum -lorem:sit -lorem:amet)"));
-	}
-
-	@Test
-	public void testWithPhrase() {
-		String fragment = ne("lorem", phrase("ipsum sit amet")).toQueryFragment();
-		assertThat(fragment, equalTo("-lorem:\"ipsum sit amet\""));
+	public void test() {
+		assertThat(new GreaterThanOrEqualTo(word("lorem")).value(), equalTo("[ lorem TO * ]"));
 	}
 
 }

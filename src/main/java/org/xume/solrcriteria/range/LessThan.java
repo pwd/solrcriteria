@@ -14,33 +14,24 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.range;
 
-import static org.xume.solrcriteria.criterion.Patterns.gt;
-
-import org.xume.solrcriteria.term.Term;
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
  */
-public class GtCriterion extends AbstractCriterion {
+public class LessThan implements Range {
 
-	public GtCriterion(Term value) {
-		super(value);
-	}
+	private Term term;
 
-	public GtCriterion(String field, Term value) {
-		super(field, value);
-	}
-
-	@Override
-	protected String getFieldFragment(String value) {
-		return gt(value);
+	public LessThan(Term term) {
+		this.term = term;
 	}
 
 	@Override
-	protected String getFieldFragment(String field, String value) {
-		return field + ":" + gt(value);
+	public String value() {
+		return Patterns.lt(term);
 	}
 
 }

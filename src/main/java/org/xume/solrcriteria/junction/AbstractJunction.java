@@ -14,45 +14,50 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.junction;
 
 import java.util.Iterator;
 import java.util.List;
 
+import org.xume.solrcriteria.terms.Term;
+
 /**
  * @author Johan Siebens
  */
-public abstract class AbstractJunction implements Criterion {
+public abstract class AbstractJunction implements Junction {
 
-	private List<Criterion> criterions;
+	private List<Term> terms;
 
 	private String operator;
 
-	public AbstractJunction(String operator, List<Criterion> criterions) {
-		this.criterions = criterions;
+	public AbstractJunction(String operator, List<Term> terms) {
+		this.terms = terms;
 		this.operator = operator;
 	}
 
-	public String toQueryFragment() {
-		if (criterions == null || criterions.isEmpty()) {
+	@Override
+	public String value() {
+		if (terms == null || terms.isEmpty()) {
 			return "";
-		} else if (criterions.size() == 1) {
-			return criterions.get(0).toQueryFragment();
-		} else {
-			StringBuilder fragment = new StringBuilder("(");
+		}
+		else if (terms.size() == 1) {
+			return terms.get(0).value();
+		}
+		else {
+			StringBuilder result = new StringBuilder("(");
 
-			for (Iterator<Criterion> iterator = criterions.iterator(); iterator.hasNext();) {
-				Criterion criterion = iterator.next();
-				fragment.append(criterion.toQueryFragment());
+			for (Iterator<Term> iterator = terms.iterator(); iterator.hasNext();) {
+				Term term = iterator.next();
+				result.append(term.value());
 
 				if (iterator.hasNext()) {
-					fragment.append(" " + operator + " ");
+					result.append(" " + operator + " ");
 				}
 			}
 
-			fragment.append(")");
+			result.append(")");
 
-			return fragment.toString();
+			return result.toString();
 		}
 	}
 

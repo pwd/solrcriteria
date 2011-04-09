@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.junction;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.xume.solrcriteria.criterion.Restrictions.eq;
-import static org.xume.solrcriteria.criterion.Restrictions.or;
-import static org.xume.solrcriteria.term.Terms.term;
+import static org.xume.solrcriteria.terms.Terms.word;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
-import org.xume.solrcriteria.criterion.Criterion;
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
@@ -34,22 +32,9 @@ import org.xume.solrcriteria.criterion.Criterion;
 public class DisjunctionTest {
 
 	@Test
-	public void testWithMultipleCriterions() {
-		String fragment = or(eq(term("lorem")), eq(term("ipsum"))).toQueryFragment();
-		assertThat(fragment, equalTo("(lorem OR ipsum)"));
+	public void test() {
+		List<Term> terms = asList(new Term[]{word("lorem"), word("ipsum"), word("doloret")});
+		assertThat(new Disjunction(terms).value(), equalTo("(lorem OR ipsum OR doloret)"));
 	}
-
-	@Test
-	public void testWithoutCriterion() {
-		String fragment = or().toQueryFragment();
-		assertThat(fragment, equalTo(""));
-	}
-
-	@Test
-	public void testWithSingleCriterion() {
-		List<Criterion> criterions = Collections.singletonList(eq(term("lorem")));
-		String fragment = or(criterions).toQueryFragment();
-		assertThat(fragment, equalTo("lorem"));
-	}
-
+	
 }

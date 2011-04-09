@@ -14,13 +14,24 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.term;
+package org.xume.solrcriteria.range;
+
+import org.xume.solrcriteria.terms.Term;
 
 /**
  * @author Johan Siebens
  */
-public interface Term {
+public class LessThanOrEqualTo implements Range {
 
-	String[] values();
+	private Term term;
+
+	public LessThanOrEqualTo(Term term) {
+		this.term = term;
+	}
+
+	@Override
+	public String value() {
+		return Patterns.le(term);
+	}
 
 }

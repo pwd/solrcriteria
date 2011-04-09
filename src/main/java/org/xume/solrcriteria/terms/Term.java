@@ -14,31 +14,13 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.criterion;
+package org.xume.solrcriteria.terms;
 
 /**
  * @author Johan Siebens
  */
-class Patterns {
+public interface Term {
 
-	static String eq(String value) {
-		return value;
-	}
-
-	static String ge(String value) {
-		return "[ " + value + " TO * ]";
-	}
-
-	static String gt(String value) {
-		return "{ " + value + " TO * }";
-	}
-
-	static String le(String value) {
-		return "[ * TO " + value + " ]";
-	}
-
-	static String lt(String value) {
-		return "{ * TO " + value + " }";
-	}
+	String value();
 
 }
