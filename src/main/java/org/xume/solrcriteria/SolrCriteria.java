@@ -131,9 +131,6 @@ public class SolrCriteria extends SolrCriteriaBuilder {
 		else {
 			solrQuery.setQuery("*:*");
 		}
-
-		System.out.println(solrQuery.getQuery());
-
 		return solrQuery;
 	}
 
