@@ -58,6 +58,10 @@ class SolrCriteriaBuilder {
 		return ModifiedTerms.prohibited(term);
 	}
 
+	protected final ModifiedTerm not(Term term) {
+		return ModifiedTerms.not(term);
+	}
+
 	protected final AbstractJunction and(Term... terms) {
 		return Junctions.and(Arrays.asList(terms));
 	}

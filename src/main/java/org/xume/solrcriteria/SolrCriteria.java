@@ -125,12 +125,14 @@ public class SolrCriteria extends SolrCriteriaBuilder {
 
 	SolrQuery buildQuery() {
 		String query = query();
+
 		if (query != null && query.trim().length() != 0) {
 			solrQuery.setQuery(query);
 		}
 		else {
 			solrQuery.setQuery("*:*");
 		}
+
 		return solrQuery;
 	}
 

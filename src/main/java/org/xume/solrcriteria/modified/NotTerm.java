@@ -21,18 +21,17 @@ import org.xume.solrcriteria.term.Term;
 /**
  * @author Johan Siebens
  */
-public class ModifiedTerms {
+public class NotTerm implements ModifiedTerm {
 
-	public static ModifiedTerm required(Term term) {
-		return new RequiredTerm(term);
+	private Term term;
+
+	public NotTerm(Term term) {
+		this.term = term;
 	}
 
-	public static ModifiedTerm prohibited(Term term) {
-		return new ProhibitedTerm(term);
-	}
-
-	public static ModifiedTerm not(Term term) {
-		return new NotTerm(term);
+	@Override
+	public String value() {
+		return "NOT " + term.value();
 	}
 
 }
