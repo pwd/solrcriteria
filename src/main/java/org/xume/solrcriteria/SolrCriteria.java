@@ -28,7 +28,7 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocumentList;
 import org.xume.solrcriteria.junction.DefaultJunction;
 import org.xume.solrcriteria.order.Order;
-import org.xume.solrcriteria.terms.Term;
+import org.xume.solrcriteria.term.Term;
 
 /**
  * @author Johan Siebens

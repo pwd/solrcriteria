@@ -18,7 +18,7 @@ package org.xume.solrcriteria.range;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.xume.solrcriteria.terms.Terms.word;
+import static org.xume.solrcriteria.term.Terms.word;
 
 import org.junit.Test;
 

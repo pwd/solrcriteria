@@ -16,7 +16,7 @@
 
 package org.xume.solrcriteria.range;
 
-import org.xume.solrcriteria.terms.Term;
+import org.xume.solrcriteria.term.Term;
 
 /**
  * @author Johan Siebens

@@ -19,7 +19,7 @@ package org.xume.solrcriteria.junction;
 import java.util.Iterator;
 import java.util.List;
 
-import org.xume.solrcriteria.terms.Term;
+import org.xume.solrcriteria.term.Term;
 
 /**
  * @author Johan Siebens

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.terms;
+package org.xume.solrcriteria.term;
 
 /**
  * @author Johan Siebens

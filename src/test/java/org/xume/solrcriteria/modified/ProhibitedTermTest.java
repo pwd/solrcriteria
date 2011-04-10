@@ -20,7 +20,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
-import org.xume.solrcriteria.terms.Word;
+import org.xume.solrcriteria.term.Word;
 
 /**
  * @author Johan Siebens

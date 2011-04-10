@@ -14,13 +14,31 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.terms;
+package org.xume.solrcriteria.term;
 
 /**
  * @author Johan Siebens
  */
-public interface Term {
+public class Phrase implements Term {
 
-	String value();
+	private static final String DOUBLE_QUOTE = "\"";
+
+	private String value;
+
+	public Phrase(String value) {
+		this.value = value;
+	}
+
+	@Override
+	public String value() {
+		String result = value;
+		if (!result.startsWith(DOUBLE_QUOTE)) {
+			result = DOUBLE_QUOTE + result;
+		}
+		if (!result.endsWith(DOUBLE_QUOTE)) {
+			result = result + DOUBLE_QUOTE;
+		}
+		return result;
+	}
 
 }

@@ -19,12 +19,12 @@ package org.xume.solrcriteria.junction;
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.xume.solrcriteria.terms.Terms.word;
+import static org.xume.solrcriteria.term.Terms.word;
 
 import java.util.List;
 
 import org.junit.Test;
-import org.xume.solrcriteria.terms.Term;
+import org.xume.solrcriteria.term.Term;
 
 /**
  * @author Johan Siebens

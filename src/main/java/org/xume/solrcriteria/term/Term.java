@@ -14,23 +14,13 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.terms;
+package org.xume.solrcriteria.term;
 
 /**
  * @author Johan Siebens
  */
-public class Word implements Term {
+public interface Term {
 
-	private String value;
-
-	public Word(String value) {
-		// TODO check for whitespaces
-		this.value = value;
-	}
-
-	@Override
-	public String value() {
-		return value;
-	}
+	String value();
 
 }

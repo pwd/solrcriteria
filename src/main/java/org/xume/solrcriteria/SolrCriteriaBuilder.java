@@ -26,8 +26,8 @@ import org.xume.solrcriteria.modified.ModifiedTerms;
 import org.xume.solrcriteria.order.Order;
 import org.xume.solrcriteria.range.Range;
 import org.xume.solrcriteria.range.Ranges;
-import org.xume.solrcriteria.terms.Term;
-import org.xume.solrcriteria.terms.Terms;
+import org.xume.solrcriteria.term.Term;
+import org.xume.solrcriteria.term.Terms;
 
 /**
  * @author Johan Siebens

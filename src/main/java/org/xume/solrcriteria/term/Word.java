@@ -14,31 +14,23 @@
  * limitations under the License.
  */
 
-package org.xume.solrcriteria.terms;
+package org.xume.solrcriteria.term;
 
 /**
  * @author Johan Siebens
  */
-public class Phrase implements Term {
-
-	private static final String DOUBLE_QUOTE = "\"";
+public class Word implements Term {
 
 	private String value;
 
-	public Phrase(String value) {
+	public Word(String value) {
+		// TODO check for whitespaces
 		this.value = value;
 	}
 
 	@Override
 	public String value() {
-		String result = value;
-		if (!result.startsWith(DOUBLE_QUOTE)) {
-			result = DOUBLE_QUOTE + result;
-		}
-		if (!result.endsWith(DOUBLE_QUOTE)) {
-			result = result + DOUBLE_QUOTE;
-		}
-		return result;
+		return value;
 	}
 
 }
