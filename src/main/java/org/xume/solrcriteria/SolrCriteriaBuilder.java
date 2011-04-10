@@ -22,7 +22,7 @@ import java.util.List;
 import org.xume.solrcriteria.junction.AbstractJunction;
 import org.xume.solrcriteria.junction.Junctions;
 import org.xume.solrcriteria.modified.ModifiedTerm;
-import org.xume.solrcriteria.modified.Modifiers;
+import org.xume.solrcriteria.modified.ModifiedTerms;
 import org.xume.solrcriteria.order.Order;
 import org.xume.solrcriteria.range.Range;
 import org.xume.solrcriteria.range.Ranges;
@@ -51,11 +51,11 @@ class SolrCriteriaBuilder {
 	}
 
 	protected final ModifiedTerm required(Term term) {
-		return Modifiers.required(term);
+		return ModifiedTerms.required(term);
 	}
 
 	protected final ModifiedTerm prohibited(Term term) {
-		return Modifiers.prohibited(term);
+		return ModifiedTerms.prohibited(term);
 	}
 
 	protected final AbstractJunction and(Term... terms) {

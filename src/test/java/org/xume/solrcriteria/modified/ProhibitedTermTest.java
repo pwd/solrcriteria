@@ -16,22 +16,20 @@
 
 package org.xume.solrcriteria.modified;
 
-import org.xume.solrcriteria.terms.Term;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
+
+import org.junit.Test;
+import org.xume.solrcriteria.terms.Word;
 
 /**
  * @author Johan Siebens
  */
-public class RequiredModifier implements ModifiedTerm {
+public class ProhibitedTermTest {
 
-	private Term term;
-
-	public RequiredModifier(Term term) {
-		this.term = term;
-	}
-
-	@Override
-	public String value() {
-		return "+" + term.value();
+	@Test
+	public void test() {
+		assertThat(new ProhibitedTerm(new Word("lorem")).value(), equalTo("-lorem"));
 	}
 
 }
